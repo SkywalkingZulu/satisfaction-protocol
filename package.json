@@ -2,7 +2,10 @@
   "name": "satisfaction-token",
   "version": "0.1.0",
   "description": "Sandblock Satifaction Token",
-  "files": ["contracts", "test"],
+  "files": [
+    "contracts",
+    "test"
+  ],
   "scripts": {
     "test": "scripts/test.sh",
     "lint": "eslint .",
@@ -18,7 +21,14 @@
     "type": "git",
     "url": "https://github.com/SandBlockio/satisfaction-protocol.git"
   },
-  "keywords": ["solidity", "ethereum", "smart", "contracts", "security", "zeppelin"],
+  "keywords": [
+    "solidity",
+    "ethereum",
+    "smart",
+    "contracts",
+    "security",
+    "zeppelin"
+  ],
   "author": "Jeremy Grenier <jeremy@sandblock.io>",
   "license": "MIT",
   "bugs": {
@@ -47,7 +57,8 @@
     "solidity-coverage": "^0.4.15",
     "solium": "^1.1.7",
     "truffle": "^4.1.8",
-    "truffle-hdwallet-provider": "0.0.3"
+    "truffle-hdwallet-provider": "0.0.3",
+    "truffle-ledger-provider": "0.0.1"
   },
   "dependencies": {
     "ethjs-abi": "^0.2.1",

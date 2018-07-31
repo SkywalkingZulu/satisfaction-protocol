@@ -3,6 +3,7 @@ require('babel-register');
 require('babel-polyfill');
 
 const HDWalletProvider = require('truffle-hdwallet-provider');
+const LedgerWalletProvider = require('truffle-ledger-provider');
 
 const providerWithMnemonic = (mnemonic, rpcEndpoint) => new HDWalletProvider(mnemonic, rpcEndpoint);
 
@@ -10,6 +11,14 @@ const infuraProvider = network =>
   providerWithMnemonic(process.env.MNEMONIC || '', `https://${network}.infura.io/${process.env.INFURA_API_KEY}`);
 
 const ropstenProvider = process.env.SOLIDITY_COVERAGE ? undefined : infuraProvider('ropsten');
+
+const ledgerOptions = {
+  networkId: 1,
+  path: '44\'/60\'/1\'/0',
+  askConfirm: false,
+  accountsLength: 1,
+  accountsOffset: 0,
+};
 
 module.exports = {
   solc: {
@@ -45,6 +54,11 @@ module.exports = {
       host: 'localhost',
       port: 7545,
       network_id: '*', // eslint-disable-line camelcase
+    },
+    ledger: {
+      provider: new LedgerWalletProvider(ledgerOptions, `https://mainnet.infura.io/${process.env.INFURA_API_KEY}`),
+      network_id: 1, // eslint-disable-line camelcase
+      gasPrice: 20000000000,
     },
   },
 };
